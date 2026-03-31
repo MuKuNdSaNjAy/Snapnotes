@@ -1,4 +1,4 @@
-# 📌 SnapNotes
+# SnapNotes
 
 A real-time collaborative sticky notes app built with React and Supabase. Create personal notes, form groups with friends or family, and share notes together — all with a 24-hour expiry system to keep things fresh.
 
