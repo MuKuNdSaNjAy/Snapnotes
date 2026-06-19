@@ -34,7 +34,7 @@ A real-time collaborative sticky notes app built with React and Supabase. Create
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/snapnotes.git
+git clone https://github.com/MuKuNdSaNjAy/Snapnotes.git
 cd snapnotes
 ```
 
