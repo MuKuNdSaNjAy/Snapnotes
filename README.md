@@ -25,7 +25,7 @@ A real-time collaborative sticky notes app built with React and Supabase. Create
 | Backend | Supabase (Postgres + Auth + Realtime) |
 | Email | EmailJS |
 | Font | Google Fonts — Inter + Caveat |
-| Auth | Supabase Auth (Google OAuth, Email/Password) |
+| Auth | Supabase Auth (Google OAuth, Email/Password) | 
 
 ---
 
