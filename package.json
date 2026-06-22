@@ -1,6 +1,8 @@
 {
   "name": "snapnotes",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "description": "Real-time collaborative sticky notes app with 24-hour expiry, groups, and Supabase auth",
+  "keywords": ["react", "supabase", "notes", "collaborative", "realtime"],
   "private": true,
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
