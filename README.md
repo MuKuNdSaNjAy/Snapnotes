@@ -251,5 +251,5 @@ src/
 
 ## License
 
-Mukund Sanjay Bharani
+MIT © [Mukund Sanjay Bharani](https://github.com/MuKuNdSaNjAy)
 
