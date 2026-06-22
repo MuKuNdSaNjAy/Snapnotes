@@ -29,6 +29,15 @@ A real-time collaborative sticky notes app built with React and Supabase. Create
 
 ---
 
+## Prerequisites
+
+- Node.js v18+
+- npm v9+
+- A [Supabase](https://supabase.com) project (optional — falls back to localStorage)
+- An [EmailJS](https://www.emailjs.com) account (optional — only needed for group invites)
+
+---
+
 ## Getting Started
 
 ### 1. Clone the repo
@@ -241,5 +250,6 @@ src/
 ---
 
 ## License
+
 Mukund Sanjay Bharani
 
