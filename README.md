@@ -25,7 +25,8 @@ A real-time collaborative sticky notes app built with React and Supabase. Create
 | Backend | Supabase (Postgres + Auth + Realtime) |
 | Email | EmailJS |
 | Font | Google Fonts — Inter + Caveat |
-| Auth | Supabase Auth (Google OAuth, Email/Password) | 
+| Auth | Supabase Auth (Google OAuth, Email/Password) |
+| Deployment | Vercel / Netlify |
 
 ---
 
@@ -77,6 +78,36 @@ REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
 ```bash
 npm start
 ```
+
+---
+
+## Deployment
+
+SnapNotes is a standard Create React App build, so it deploys easily to Vercel or Netlify.
+
+### Vercel
+
+```bash
+npm install -g vercel
+vercel
+```
+
+- Set `REACT_APP_SUPABASE_URL`, `REACT_APP_SUPABASE_ANON_KEY`, and the `REACT_APP_EMAILJS_*` variables in **Project Settings → Environment Variables**.
+- Build command: `npm run build` · Output directory: `build`
+
+### Netlify
+
+```bash
+npm install -g netlify-cli
+netlify deploy --prod
+```
+
+- Set the same environment variables in **Site Settings → Environment Variables**.
+- Build command: `npm run build` · Publish directory: `build`
+
+### Supabase Auth redirect URLs
+
+After deploying, add your production URL to **Supabase → Authentication → URL Configuration → Redirect URLs** (e.g. `https://your-app.vercel.app`), or Google OAuth sign-in will fail in production.
 
 ---
 
@@ -252,4 +283,3 @@ src/
 ## License
 
 MIT © [Mukund Sanjay Bharani](https://github.com/MuKuNdSaNjAy)
-
