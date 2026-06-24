@@ -1,6 +1,7 @@
 const COLORS = [
   { value: "yellow", bg: "bg-yellow-300", ring: "ring-yellow-400" },
   { value: "pink",   bg: "bg-pink-300",   ring: "ring-pink-400"   },
+  { value: "orange", bg: "bg-orange-300", ring: "ring-orange-400" },
   { value: "blue",   bg: "bg-blue-300",   ring: "ring-blue-400"   },
   { value: "green",  bg: "bg-green-300",  ring: "ring-green-400"  },
   { value: "purple", bg: "bg-purple-300", ring: "ring-purple-400" },

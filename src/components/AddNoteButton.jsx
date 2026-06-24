@@ -4,6 +4,7 @@ import { NotesContext } from "../context/NotesContext";
 const COLORS = [
   { value: "yellow", bg: "bg-yellow-300" },
   { value: "pink",   bg: "bg-pink-300"   },
+  { value: "orange", bg: "bg-orange-300" },
   { value: "blue",   bg: "bg-blue-300"   },
   { value: "green",  bg: "bg-green-300"  },
   { value: "purple", bg: "bg-purple-300" },

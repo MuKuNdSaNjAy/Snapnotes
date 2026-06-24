@@ -15,6 +15,7 @@ const COLOR_FILTERS = [
   { label: "All",    value: null,     bg: "bg-gray-300 dark:bg-gray-500" },
   { label: "Yellow", value: "yellow", bg: "bg-yellow-300" },
   { label: "Pink",   value: "pink",   bg: "bg-pink-300" },
+  { label: "Orange", value: "orange", bg: "bg-orange-300" },
   { label: "Blue",   value: "blue",   bg: "bg-blue-300" },
   { label: "Green",  value: "green",  bg: "bg-green-300" },
   { label: "Purple", value: "purple", bg: "bg-purple-300" },

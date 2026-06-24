@@ -10,6 +10,7 @@ const CATEGORIES = ["Work", "Personal", "Ideas", "Todo", "Study", "Other"];
 const COLORS = [
   { value: "yellow", bg: "bg-yellow-300" },
   { value: "pink",   bg: "bg-pink-300"   },
+  { value: "orange", bg: "bg-orange-300" },
   { value: "blue",   bg: "bg-blue-300"   },
   { value: "green",  bg: "bg-green-300"  },
   { value: "purple", bg: "bg-purple-300" },
@@ -18,6 +19,7 @@ const COLORS = [
 const COLOR_MAP = {
   yellow: { card: "bg-yellow-50  border-yellow-200",  badge: "bg-yellow-100 text-yellow-700" },
   pink:   { card: "bg-pink-50    border-pink-200",    badge: "bg-pink-100   text-pink-700"   },
+  orange: { card: "bg-orange-50  border-orange-200",  badge: "bg-orange-100 text-orange-700" },
   blue:   { card: "bg-blue-50    border-blue-200",    badge: "bg-blue-100   text-blue-700"   },
   green:  { card: "bg-green-50   border-green-200",   badge: "bg-green-100  text-green-700"  },
   purple: { card: "bg-purple-50  border-purple-200",  badge: "bg-purple-100 text-purple-700" },
@@ -26,6 +28,7 @@ const COLOR_MAP = {
 const DARK_COLOR_MAP = {
   yellow: { card: "bg-yellow-900/25 border-yellow-800/60", badge: "bg-yellow-900/40 text-yellow-300" },
   pink:   { card: "bg-pink-900/25   border-pink-800/60",   badge: "bg-pink-900/40   text-pink-300"   },
+  orange: { card: "bg-orange-900/25 border-orange-800/60", badge: "bg-orange-900/40 text-orange-300" },
   blue:   { card: "bg-blue-900/25   border-blue-800/60",   badge: "bg-blue-900/40   text-blue-300"   },
   green:  { card: "bg-green-900/25  border-green-800/60",  badge: "bg-green-900/40  text-green-300"  },
   purple: { card: "bg-purple-900/25 border-purple-800/60", badge: "bg-purple-900/40 text-purple-300" },
