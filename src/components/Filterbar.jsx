@@ -7,6 +7,7 @@ const CATEGORIES = [
   { label: "Personal", icon: "🙂" },
   { label: "Ideas",    icon: "💡" },
   { label: "Todo",     icon: "✅" },
+  { label: "Study",    icon: "📚" },
   { label: "Other",    icon: "📎" },
 ];
 

@@ -1,4 +1,4 @@
-const CATEGORIES = ["Work", "Personal", "Ideas", "Todo", "Other"];
+const CATEGORIES = ["Work", "Personal", "Ideas", "Todo", "Study", "Other"];
 
 /**
  * Uses the Anthropic API (via a proxy-safe fetch) to categorize a note.

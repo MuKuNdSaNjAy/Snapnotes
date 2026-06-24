@@ -5,7 +5,7 @@ import { NotesContext } from "../context/NotesContext";
 import { useGroups } from "../context/GroupsContext";
 import ColorPicker from "./ColorPicker";
 
-const CATEGORIES = ["Work", "Personal", "Ideas", "Todo", "Other"];
+const CATEGORIES = ["Work", "Personal", "Ideas", "Todo", "Study", "Other"];
 
 const COLORS = [
   { value: "yellow", bg: "bg-yellow-300" },

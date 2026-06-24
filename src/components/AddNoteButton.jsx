@@ -9,7 +9,7 @@ const COLORS = [
   { value: "purple", bg: "bg-purple-300" },
 ];
 
-const CATEGORIES = ["Work", "Personal", "Ideas", "Todo", "Other"];
+const CATEGORIES = ["Work", "Personal", "Ideas", "Todo", "Study", "Other"];
 
 export default function AddNoteButton() {
   const { addNote, darkMode } = useContext(NotesContext);
