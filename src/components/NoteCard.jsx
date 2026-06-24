@@ -327,7 +327,7 @@ export default function NoteCard({ note }) {
               autoFocus
               rows={4}
               value={editText}
-              onChange={(e) => setEditText(e.target.value.slice(0, 100))}
+              onChange={(e) => setEditText(e.target.value.slice(0, 200))}
               onKeyDown={(e) => { if (e.key === "Enter" && e.ctrlKey) saveEdit(); if (e.key === "Escape") setShowEditModal(false); }}
               className={`w-full rounded-xl p-3 text-sm outline-none border transition-all ${
                 darkMode
@@ -336,9 +336,9 @@ export default function NoteCard({ note }) {
               }`}
             />
             <span className={`absolute bottom-2 right-3 text-[11px] font-medium ${
-              editText.length >= 100 ? "text-red-400" : darkMode ? "text-gray-500" : "text-gray-400"
+              editText.length >= 200 ? "text-red-400" : darkMode ? "text-gray-500" : "text-gray-400"
             }`}>
-              {editText.length}/100
+              {editText.length}/200
             </span>
           </div>
 

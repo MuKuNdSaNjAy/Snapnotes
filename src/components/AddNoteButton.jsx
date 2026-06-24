@@ -71,7 +71,7 @@ export default function AddNoteButton() {
               ref={textareaRef}
               rows={4}
               value={text}
-              onChange={(e) => setText(e.target.value.slice(0, 100))}
+              onChange={(e) => setText(e.target.value.slice(0, 200))}
               onKeyDown={handleKeyDown}
               placeholder="What's on your mind?"
               className={`w-full rounded-xl p-3 text-sm outline-none border transition-all ${
@@ -81,11 +81,11 @@ export default function AddNoteButton() {
               }`}
             />
             <span className={`absolute bottom-2 right-3 text-[11px] font-medium ${
-              text.length >= 100
+              text.length >= 200
                 ? "text-red-400"
                 : darkMode ? "text-gray-500" : "text-gray-400"
             }`}>
-              {text.length}/100
+              {text.length}/200
             </span>
           </div>
 
