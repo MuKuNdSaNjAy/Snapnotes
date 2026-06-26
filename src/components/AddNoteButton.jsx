@@ -130,7 +130,7 @@ export default function AddNoteButton() {
           {/* Actions */}
           <div className="flex gap-2">
             <button
-              onClick={() => { setText(""); setIsOpen(false); }}
+              onClick={() => { setText(""); setColor("yellow"); setCategory("Other"); setIsOpen(false); }}
               className={`flex-1 py-2 rounded-xl text-sm font-medium transition-all active:scale-95 ${
                 darkMode
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300"
