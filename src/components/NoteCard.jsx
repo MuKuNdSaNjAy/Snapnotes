@@ -143,6 +143,7 @@ export default function NoteCard({ note }) {
       <div
         {...attributes}
         {...listeners}
+        aria-label="Drag to reorder"
         className="absolute top-0 left-0 right-0 h-4 cursor-grab active:cursor-grabbing rounded-t-2xl opacity-0 group-hover:opacity-100"
       >
         <div className="flex justify-center pt-1">
