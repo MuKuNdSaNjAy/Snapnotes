@@ -6,6 +6,7 @@ const EXPIRY = 24 * 60 * 60 * 1000;
 const COLOR_MAP = {
   yellow: "bg-yellow-50  border-yellow-200 text-yellow-800",
   pink:   "bg-pink-50    border-pink-200   text-pink-800",
+  orange: "bg-orange-50  border-orange-200 text-orange-800",
   blue:   "bg-blue-50    border-blue-200   text-blue-800",
   green:  "bg-green-50   border-green-200  text-green-800",
   purple: "bg-purple-50  border-purple-200 text-purple-800",
@@ -13,6 +14,7 @@ const COLOR_MAP = {
 const DARK_COLOR_MAP = {
   yellow: "bg-yellow-900/25 border-yellow-800/50 text-yellow-200",
   pink:   "bg-pink-900/25   border-pink-800/50   text-pink-200",
+  orange: "bg-orange-900/25 border-orange-800/50 text-orange-200",
   blue:   "bg-blue-900/25   border-blue-800/50   text-blue-200",
   green:  "bg-green-900/25  border-green-800/50  text-green-200",
   purple: "bg-purple-900/25 border-purple-800/50 text-purple-200",
