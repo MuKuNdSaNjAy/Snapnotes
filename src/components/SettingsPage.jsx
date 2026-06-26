@@ -132,6 +132,15 @@ export default function SettingsPage({ onNavigate }) {
               {notes.filter(n => n.pinned).length}
             </span>
           </Row>
+          <Row
+            icon="🏷️"
+            label="Categories used"
+            description="Distinct categories across your notes"
+          >
+            <span className="text-sm font-bold text-indigo-500">
+              {new Set(notes.map(n => n.category).filter(Boolean)).size}
+            </span>
+          </Row>
         </Section>
 
         {/* Data */}
@@ -197,7 +206,7 @@ export default function SettingsPage({ onNavigate }) {
 
         {/* About */}
         <Section title="About">
-          <Row icon="📌" label="SnapNotes" description="Version 1.0.0 · Beta">
+          <Row icon="📌" label="SnapNotes" description="Version 1.1.0 · Beta">
             <span className="text-xs text-gray-400">Built with ❤️</span>
           </Row>
         </Section>

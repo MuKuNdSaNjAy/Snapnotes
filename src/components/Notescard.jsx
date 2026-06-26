@@ -7,6 +7,7 @@ import ColorPicker from "./ColorPicker";
 const COLOR_MAP = {
   yellow: "bg-yellow-100 border-yellow-300",
   pink:   "bg-pink-100   border-pink-300",
+  orange: "bg-orange-100 border-orange-300",
   blue:   "bg-blue-100   border-blue-300",
   green:  "bg-green-100  border-green-300",
   purple: "bg-purple-100 border-purple-300",
@@ -15,6 +16,7 @@ const COLOR_MAP = {
 const DARK_COLOR_MAP = {
   yellow: "bg-yellow-900/40 border-yellow-700",
   pink:   "bg-pink-900/40   border-pink-700",
+  orange: "bg-orange-900/40 border-orange-700",
   blue:   "bg-blue-900/40   border-blue-700",
   green:  "bg-green-900/40  border-green-700",
   purple: "bg-purple-900/40 border-purple-700",
@@ -98,6 +100,7 @@ export default function NoteCard({ note }) {
       <div
         {...attributes}
         {...listeners}
+        aria-label="Drag to reorder"
         className="absolute top-0 left-0 right-0 h-5 cursor-grab active:cursor-grabbing rounded-t-2xl"
         title="Drag to reorder"
       />
@@ -159,17 +162,23 @@ export default function NoteCard({ note }) {
 
       {/* Note content */}
       {isEditing ? (
-        <textarea
-          ref={textareaRef}
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-          onBlur={saveEdit}
-          onKeyDown={handleKeyDown}
-          rows={4}
-          className={`w-full resize-none rounded-lg p-1 text-sm outline-none bg-transparent border border-dashed ${
-            darkMode ? "border-gray-500 text-gray-100" : "border-gray-400 text-gray-800"
-          }`}
-        />
+        <>
+          <textarea
+            ref={textareaRef}
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+            onBlur={saveEdit}
+            onKeyDown={handleKeyDown}
+            maxLength={200}
+            rows={4}
+            className={`w-full resize-none rounded-lg p-1 text-sm outline-none bg-transparent border border-dashed ${
+              darkMode ? "border-gray-500 text-gray-100" : "border-gray-400 text-gray-800"
+            }`}
+          />
+          <p className={`text-[10px] text-right mt-0.5 ${draft.length >= 190 ? "text-red-400" : darkMode ? "text-gray-500" : "text-gray-400"}`}>
+            {draft.length}/200
+          </p>
+        </>
       ) : (
         <p
           onDoubleClick={() => { setDraft(note.content); setIsEditing(true); }}
@@ -186,10 +195,13 @@ export default function NoteCard({ note }) {
           darkMode ? "text-gray-500" : "text-gray-400"
         }`}
       >
-        {new Date(note.updatedAt ?? note.createdAt).toLocaleDateString(undefined, {
-          month: "short",
-          day:   "numeric",
-        })}
+        {(() => {
+          const d = new Date(note.updatedAt ?? note.createdAt);
+          const opts = d.getFullYear() !== new Date().getFullYear()
+            ? { month: "short", day: "numeric", year: "numeric" }
+            : { month: "short", day: "numeric" };
+          return d.toLocaleDateString(undefined, opts);
+        })()}
       </p>
     </div>
   );

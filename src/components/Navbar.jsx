@@ -117,6 +117,7 @@ export default function Navbar({ onNavigate, currentPage }) {
           </svg>
           <input
             type="text"
+            aria-label="Search notes"
             placeholder="Search notes..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}

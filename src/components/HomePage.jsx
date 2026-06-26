@@ -8,6 +8,9 @@ const QUOTES = [
   "Clarity starts with writing it down.",
   "One note at a time.",
   "Capture it before it's gone.",
+  "The faintest ink is stronger than the best memory.",
+  "Write it down. Make it real.",
+  "Every great idea starts as a small note.",
 ];
 
 const COLOR_MAP = {
@@ -118,6 +121,7 @@ export default function HomePage({ onNavigate }) {
             type="text"
             value={quickText}
             onChange={e => setQuickText(e.target.value)}
+            maxLength={200}
             placeholder="Add a note for today..."
             className={`flex-1 px-4 py-3 rounded-2xl text-sm border outline-none transition-all ${
               darkMode
