@@ -18,7 +18,7 @@ const EXPIRY = 24 * 60 * 60 * 1000;
 const WARN   =  2 * 60 * 60 * 1000;
 
 export default function NotesGrid() {
-  const { notes, setNotes, searchQuery, activeCategory, activeColor, darkMode } =
+  const { notes, setNotes, searchQuery, setSearchQuery, activeCategory, setActiveCategory, activeColor, setActiveColor, darkMode } =
     useContext(NotesContext);
 
   const sensors = useSensors(
@@ -80,6 +80,18 @@ export default function NotesGrid() {
               : "Tap + to create your first note"}
           </p>
         </div>
+        {isFiltered && (
+          <button
+            onClick={() => { setSearchQuery(""); setActiveCategory("All"); setActiveColor(null); }}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all active:scale-95 ${
+              darkMode
+                ? "bg-gray-800 text-indigo-400 hover:bg-gray-700"
+                : "bg-indigo-50 text-indigo-500 hover:bg-indigo-100"
+            }`}
+          >
+            Clear filters
+          </button>
+        )}
       </div>
     );
   }
