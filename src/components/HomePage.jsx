@@ -60,7 +60,7 @@ export default function HomePage({ onNavigate }) {
   const [quickText, setQuickText] = useState("");
 
   const firstName = user?.email?.split("@")[0] ?? "there";
-  const quote = QUOTES[new Date().getDay() % QUOTES.length];
+  const quote = QUOTES[new Date().getDate() % QUOTES.length];
   const today = new Date().toLocaleDateString(undefined, {
     weekday: "long", month: "long", day: "numeric",
   });
