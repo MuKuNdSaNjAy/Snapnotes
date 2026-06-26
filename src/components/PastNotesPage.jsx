@@ -22,7 +22,10 @@ const DARK_COLOR_MAP = {
 
 function timeAgo(ts) {
   const diff = Date.now() - ts;
-  const h = Math.floor(diff / 3600000);
+  const m = Math.floor(diff / 60000);
+  if (m < 1)  return "just now";
+  if (m < 60) return `${m}m ago`;
+  const h = Math.floor(m / 60);
   if (h < 24) return `${h}h ago`;
   return `${Math.floor(h / 24)}d ago`;
 }
