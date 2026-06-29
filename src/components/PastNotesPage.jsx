@@ -39,6 +39,12 @@ export default function PastNotesPage({ onNavigate }) {
 
   const expired = notes.filter(n => Date.now() - n.createdAt >= EXPIRY);
 
+  function handleClearAll() {
+    if (window.confirm(`Delete all ${expired.length} expired note${expired.length !== 1 ? "s" : ""}? This cannot be undone.`)) {
+      expired.forEach(n => deleteNote(n.id));
+    }
+  }
+
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       darkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-800"
@@ -67,9 +73,21 @@ export default function PastNotesPage({ onNavigate }) {
             </p>
           </div>
           {expired.length > 0 && (
-            <span className="ml-auto text-xs px-2.5 py-1 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 text-indigo-500 font-semibold">
-              {expired.length} note{expired.length !== 1 ? "s" : ""}
-            </span>
+            <div className="ml-auto flex items-center gap-2">
+              <span className="text-xs px-2.5 py-1 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 text-indigo-500 font-semibold">
+                {expired.length} note{expired.length !== 1 ? "s" : ""}
+              </span>
+              <button
+                onClick={handleClearAll}
+                className={`text-xs px-3 py-1.5 rounded-lg border font-semibold transition-colors active:scale-95 ${
+                  darkMode
+                    ? "border-red-800 text-red-400 hover:bg-red-900/20"
+                    : "border-red-200 text-red-500 hover:bg-red-50"
+                }`}
+              >
+                Clear All
+              </button>
+            </div>
           )}
         </div>
       </div>
