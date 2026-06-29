@@ -47,6 +47,8 @@ function Toggle({ value, onChange }) {
   );
 }
 
+const EXPIRY = 24 * 60 * 60 * 1000;
+
 export default function SettingsPage({ onNavigate }) {
   const { darkMode, toggleDarkMode, notes, setNotes } = useContext(NotesContext);
   const { user, signOut } = useAuth();
@@ -141,6 +143,15 @@ export default function SettingsPage({ onNavigate }) {
               {new Set(notes.map(n => n.category).filter(Boolean)).size}
             </span>
           </Row>
+          <Row
+            icon="🕐"
+            label="Expired notes"
+            description="Notes older than 24 hours"
+          >
+            <span className="text-sm font-bold text-indigo-500">
+              {notes.filter(n => Date.now() - n.createdAt >= EXPIRY).length}
+            </span>
+          </Row>
         </Section>
 
         {/* Data */}
@@ -206,7 +217,7 @@ export default function SettingsPage({ onNavigate }) {
 
         {/* About */}
         <Section title="About">
-          <Row icon="📌" label="SnapNotes" description="Version 1.1.0 · Beta">
+          <Row icon="📌" label="SnapNotes" description="Version 1.2.0 · Beta">
             <span className="text-xs text-gray-400">Built with ❤️</span>
           </Row>
         </Section>
