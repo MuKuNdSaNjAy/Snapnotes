@@ -96,6 +96,7 @@ export default function AddNoteButton() {
               {COLORS.map(({ value, bg }) => (
                 <button
                   key={value}
+                  title={value}
                   onClick={() => setColor(value)}
                   className={`w-5 h-5 rounded-full ${bg} transition-all active:scale-90 ${
                     color === value ? "ring-2 ring-offset-1 ring-indigo-400 scale-110" : "hover:scale-110 opacity-75 hover:opacity-100"

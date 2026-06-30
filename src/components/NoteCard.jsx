@@ -353,6 +353,7 @@ export default function NoteCard({ note }) {
               {COLORS.map(({ value, bg }) => (
                 <button
                   key={value}
+                  title={value}
                   onClick={() => setEditColor(value)}
                   className={`w-5 h-5 rounded-full ${bg} transition-all active:scale-90 ${
                     editColor === value
