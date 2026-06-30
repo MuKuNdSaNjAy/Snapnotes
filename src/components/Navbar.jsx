@@ -45,7 +45,7 @@ const MENU_ITEMS = [
 ];
 
 export default function Navbar({ onNavigate, currentPage }) {
-  const { searchQuery, setSearchQuery, darkMode, toggleDarkMode } =
+  const { searchQuery, setSearchQuery, darkMode, toggleDarkMode, notes } =
     useContext(NotesContext);
   const { user, signOut } = useAuth();
   const { pendingInvites } = useGroups();
@@ -56,6 +56,7 @@ export default function Navbar({ onNavigate, currentPage }) {
   const dropdownRef = useRef(null);
 
   const initials = user?.email?.slice(0, 2).toUpperCase() ?? "?";
+  const expiredCount = notes.filter(n => Date.now() - n.createdAt >= 24 * 60 * 60 * 1000).length;
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -231,6 +232,11 @@ export default function Navbar({ onNavigate, currentPage }) {
                       {icon}
                     </span>
                     {label}
+                    {page === "past" && expiredCount > 0 && (
+                      <span className="ml-1 px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400">
+                        {expiredCount}
+                      </span>
+                    )}
                     {isActive && (
                       <span className="ml-auto w-1.5 h-1.5 rounded-full bg-indigo-500" />
                     )}
