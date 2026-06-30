@@ -45,6 +45,10 @@ export default function PastNotesPage({ onNavigate }) {
     }
   }
 
+  function handleRestoreAll() {
+    expired.forEach(n => restoreNote(n.id));
+  }
+
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       darkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-800"
@@ -77,6 +81,16 @@ export default function PastNotesPage({ onNavigate }) {
               <span className="text-xs px-2.5 py-1 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 text-indigo-500 font-semibold">
                 {expired.length} note{expired.length !== 1 ? "s" : ""}
               </span>
+              <button
+                onClick={handleRestoreAll}
+                className={`text-xs px-3 py-1.5 rounded-lg border font-semibold transition-colors active:scale-95 ${
+                  darkMode
+                    ? "border-indigo-700 text-indigo-400 hover:bg-indigo-900/20"
+                    : "border-indigo-200 text-indigo-500 hover:bg-indigo-50"
+                }`}
+              >
+                Restore All
+              </button>
               <button
                 onClick={handleClearAll}
                 className={`text-xs px-3 py-1.5 rounded-lg border font-semibold transition-colors active:scale-95 ${
