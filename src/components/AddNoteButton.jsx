@@ -85,7 +85,7 @@ export default function AddNoteButton() {
                 ? "text-red-400"
                 : darkMode ? "text-gray-500" : "text-gray-400"
             }`}>
-              {text.length}/200
+              {text.trim() ? `${text.trim().split(/\s+/).length}w · ` : ""}{text.length}/200
             </span>
           </div>
 
