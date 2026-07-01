@@ -258,9 +258,16 @@ function MiniNoteCard({ note, darkMode, showTime = false }) {
 
   return (
     <div className={`flex items-start justify-between gap-3 px-4 py-3 rounded-2xl border transition-all hover:shadow-sm ${colorClass}`}>
-      <p className="text-sm leading-relaxed line-clamp-2 flex-1">
-        {note.content}
-      </p>
+      <div className="flex items-start gap-2 flex-1 min-w-0">
+        {note.pinned && (
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mt-0.5 shrink-0 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+          </svg>
+        )}
+        <p className="text-sm leading-relaxed line-clamp-2">
+          {note.content}
+        </p>
+      </div>
       <div className="flex flex-col items-end gap-1 shrink-0">
         <span className={`text-[11px] px-2 py-0.5 rounded-lg font-semibold bg-black/10 dark:bg-white/10`}>
           {note.category ?? "Other"}
