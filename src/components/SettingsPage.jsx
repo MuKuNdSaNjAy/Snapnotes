@@ -61,6 +61,35 @@ export default function SettingsPage({ onNavigate }) {
     }
   }
 
+  function handleImport() {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "application/json";
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const imported = JSON.parse(ev.target.result);
+          if (!Array.isArray(imported)) throw new Error("Not an array");
+          const existingIds = new Set(notes.map(n => n.id));
+          const newNotes = imported.filter(n => n.id && n.content && !existingIds.has(n.id));
+          if (newNotes.length === 0) {
+            alert("No new notes to import (duplicates skipped).");
+            return;
+          }
+          setNotes(prev => [...prev, ...newNotes]);
+          alert(`Imported ${newNotes.length} note${newNotes.length !== 1 ? "s" : ""}.`);
+        } catch {
+          alert("Invalid JSON file. Please use a SnapNotes export.");
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  }
+
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       darkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-800"
@@ -174,6 +203,18 @@ export default function SettingsPage({ onNavigate }) {
               className="text-xs px-3 py-1.5 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold transition-colors active:scale-95"
             >
               Export
+            </button>
+          </Row>
+          <Row
+            icon="📥"
+            label="Import notes"
+            description="Merge notes from a JSON export"
+          >
+            <button
+              onClick={handleImport}
+              className="text-xs px-3 py-1.5 rounded-lg border border-indigo-200 dark:border-indigo-800 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 font-semibold transition-colors active:scale-95"
+            >
+              Import
             </button>
           </Row>
           <Row
