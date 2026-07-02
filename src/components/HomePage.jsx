@@ -148,7 +148,7 @@ export default function HomePage({ onNavigate }) {
           ].map(({ label, value, icon, color }) => (
             <div
               key={label}
-              className={`rounded-2xl p-4 border ${
+              className={`rounded-2xl p-4 border transition-all duration-200 hover:-translate-y-1 hover:shadow-md cursor-default ${
                 darkMode ? "bg-gray-800/60 border-gray-700/60" : "bg-white border-gray-100"
               }`}
             >
