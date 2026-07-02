@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NotesContext } from "../context/NotesContext";
 import { useAuth } from "../context/AuthContext";
 
@@ -58,6 +58,15 @@ export default function HomePage({ onNavigate }) {
   const { user } = useAuth();
 
   const [quickText, setQuickText] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setShowScrollTop(window.scrollY > 400);
+    }
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const firstName = user?.email?.split("@")[0] ?? "there";
   const quote = QUOTES[new Date().getDate() % QUOTES.length];
@@ -247,6 +256,23 @@ export default function HomePage({ onNavigate }) {
         )}
 
       </div>
+
+      {/* Scroll to top */}
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Scroll to top"
+          className={`fixed bottom-6 left-6 z-40 w-11 h-11 rounded-2xl shadow-lg flex items-center justify-center transition-all duration-200 active:scale-90 hover:-translate-y-0.5 popup-enter ${
+            darkMode
+              ? "bg-gray-800 border border-gray-700 text-gray-300 hover:bg-gray-700"
+              : "bg-white border border-gray-100 text-gray-500 hover:bg-gray-50"
+          }`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
