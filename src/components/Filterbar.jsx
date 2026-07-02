@@ -31,6 +31,8 @@ export default function FilterBar() {
     return acc;
   }, {});
 
+  const hasActiveFilter = (activeCategory && activeCategory !== "All") || activeColor;
+
   return (
     <div
       className={`flex flex-wrap items-center gap-x-4 gap-y-2 px-5 py-2.5 border-b transition-colors duration-300 ${
@@ -96,6 +98,23 @@ export default function FilterBar() {
           );
         })}
       </div>
+
+      {/* Clear filters */}
+      {hasActiveFilter && (
+        <button
+          onClick={() => { setActiveCategory("All"); setActiveColor(null); }}
+          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-all active:scale-95 ${
+            darkMode
+              ? "text-gray-400 hover:bg-gray-800 hover:text-gray-200"
+              : "text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+          }`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          Clear filters
+        </button>
+      )}
     </div>
   );
 }
