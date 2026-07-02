@@ -134,7 +134,7 @@ export default function PastNotesPage({ onNavigate }) {
                 return (
                   <div
                     key={note.id}
-                    className={`flex items-start justify-between gap-4 px-5 py-4 rounded-2xl border ${colorClass}`}
+                    className={`flex items-start justify-between gap-4 px-5 py-4 rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${colorClass}`}
                   >
                     <div className="flex-1 min-w-0">
                       <p
